@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+.login-form {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Rubik', sans-serif;
+
+}
+
+.login-form label {
+
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(50, 54, 69, 0.795);
+    border-radius: 10px;
+    padding: 0.5rem;
+    gap: .3rem;
+
+}
+
+.login-form label h5 {
+
+    color: white;
+    font-weight: 100;
+
+}
+
+.login-form input {
+
+    background: none;
+    border: none;
+    color: white;
+
+}
+
+.input-text:focus {
+
+    outline: none;
+
+}
+
+#submit-button {
+
+    padding: 0.5rem;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(50, 54, 69);
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    width: fit-content;
+
+}
+
+#submit-button:hover {
+
+    background-color: blue;
+    transition: .5s;
+
+}

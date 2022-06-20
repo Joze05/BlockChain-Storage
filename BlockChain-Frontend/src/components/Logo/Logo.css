@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital@1&display=swap');
+
+.logo-container{
+
+display: flex;
+width: 15rem;
+align-items: center;
+
+}
+
+.app-name-container{
+
+display: flex;
+margin-left: 4%;
+font-family: 'Kanit', sans-serif;
+
+}
+
+#dot{
+
+color: rgb(25, 25, 235);
+font-weight: 700;
+
+}

@@ -1,0 +1,14 @@
+picture{
+    
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    }
+    
+    .profile-picture{
+    
+    border-radius: 50%;
+    width: 3rem;
+    
+    }

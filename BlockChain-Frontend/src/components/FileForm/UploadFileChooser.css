@@ -1,0 +1,35 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.upload-input-container{
+
+width: fit-content;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1rem;
+
+}
+
+.upload-input-container button{
+
+width: fit-content;
+padding: .3rem;
+border-radius: 10px;
+border: none;
+background-color: aquamarine;
+cursor: pointer;
+
+}
+
+.upload-input-container button:hover{
+
+    background-color: rgb(128, 211, 183);
+    transition: .5s;
+
+}

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+
+}
+
+.login-page-container {
+  height: 100vh;
+  background-color: #282c34;
+  background-image: url('../../assets/welcome-page-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.login-form-container {
+
+  width: 100%;
+  height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+
+}
