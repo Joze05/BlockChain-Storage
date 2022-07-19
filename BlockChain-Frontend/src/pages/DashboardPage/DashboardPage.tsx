@@ -3,6 +3,7 @@ import "./DashboardPage.css";
 import Header from "../../components/Header/Header";
 import UploadFileChooser from "../../components/FileForm/UploadFileChooser";
 import FilesGrid from "../../components/FilesGrid/FilesGrid";
+import BlocksGrid from "../../components/BlocksGrid/BlocksGrid";
 import { Redirect } from "wouter";
 import LoginForm from "../../components/LoginForm/LoginForm";
 
@@ -15,6 +16,7 @@ export default function DashboardPage() {
         <div className="dahsboard-body">
           <UploadFileChooser userName={localStorage.getItem('userName').toString()} />
           <FilesGrid />
+          <BlocksGrid />
         </div>
         <footer>@All rights reserved 2022</footer>
       </div>

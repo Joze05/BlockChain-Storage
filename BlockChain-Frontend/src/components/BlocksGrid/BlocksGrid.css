@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.files-table,
+td,
+th {
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: .4rem;
+    text-align: center;
+}
+
+
+.files-table td,
+th {
+    background-color: rgb(188, 212, 212);
+}
+
+.btn-minar {
+    width: fit-content;
+    padding: .3rem;
+    border-radius: 10px;
+    border: none;
+    background-color: aquamarine;
+    cursor: pointer;
+}

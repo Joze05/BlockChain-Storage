@@ -36,3 +36,36 @@ headers: {
 .then((result) => result.json())
 .then((data) => alert(data));
 }
+
+export async function getConfig(owner:any){
+
+  return fetch(API_CONFIG_URL + "getOwnerConfig", {
+    method: "POST",
+    body: JSON.stringify(owner),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then((response) => response.json())
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+}
+
+export function deleteConfig(data: any) {
+  fetch(API_CONFIG_URL, {
+    method: "DELETE",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.status)
+    .catch((error) => {
+      console.log(error);
+    });
+}

@@ -1,20 +1,39 @@
-*{
+* {
 
-padding: 0;
-margin: 0;
-box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
 
 }
 
-.config-form{
+.config-form {
 
    display: flex;
+   gap: 1rem;
 
 }
 
-.config-form input{
+.config-form input {
 
-border-radius: 10px;
-padding: .3rem;
+   border: 1px solid black;
+   border-radius: 10px;
+   padding: .3rem;
+   width: 100%;
 
+}
+
+.label-config-form {
+
+   width: 70%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+}
+
+.drop-menu {
+   width: 100%;
+   border-radius: 10px;
+   padding: .3rem;
 }

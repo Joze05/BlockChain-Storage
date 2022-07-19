@@ -1539,19 +1539,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
+    "C:\\Users\\alvar\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Documents\\GitHub\\BlockChain-Backend\\block-chain-back-end\\API1.csproj",
+      "projectUniqueName": "C:\\Users\\alvar\\Desktop\\BlockChain-Storage\\BlockChain-Storage\\block-chain-back-end\\API1.csproj",
       "projectName": "API1",
-      "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\BlockChain-Backend\\block-chain-back-end\\API1.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Documents\\GitHub\\BlockChain-Backend\\block-chain-back-end\\obj\\",
+      "projectPath": "C:\\Users\\alvar\\Desktop\\BlockChain-Storage\\BlockChain-Storage\\block-chain-back-end\\API1.csproj",
+      "packagesPath": "C:\\Users\\alvar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alvar\\Desktop\\BlockChain-Storage\\BlockChain-Storage\\block-chain-back-end\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alvar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1616,7 +1616,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

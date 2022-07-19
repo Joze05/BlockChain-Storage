@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./UploadFileChooser.css";
 import { insertFile } from "../../services/FileController";
+import ClipLoader from "react-spinners/ClipLoader";
+import Button from 'react-bootstrap/Button';
 
 function UploadFileChooser(userName: any) {
   const [files, setFiles] = useState([]);
-  //const [owner, setOwner] = useState(userName);
+  const [loading, setLoading] = useState(false);
 
   const uploadFiles = (e) => {
     setFiles(e);
@@ -13,13 +15,17 @@ function UploadFileChooser(userName: any) {
   const insertFiles = async () => {
     const f = new FormData();
 
+    setLoading(true);
+
     for (let index = 0; index < files.length; index++) {
-      //files[index].owner = "Josse";
       f.append("files", files[index]);
-      //f.append("owner", userName)
     }
-    //console.log(files);
-    await insertFile(f, userName);
+
+    //var status = await insertFile(f);
+
+    if (await insertFile(f) == 200) {
+      setLoading(false);
+    }
   };
 
   return (
@@ -30,7 +36,9 @@ function UploadFileChooser(userName: any) {
         multiple
         onChange={(e) => uploadFiles(e.target.files)}
       />
-      <button onClick={() => insertFiles()}>Upload files</button>
+      <Button variant="info"
+        onClick={() => insertFiles()}>Upload files</Button>
+      {loading ? <ClipLoader></ClipLoader> : <></>}
     </div>
   );
 }

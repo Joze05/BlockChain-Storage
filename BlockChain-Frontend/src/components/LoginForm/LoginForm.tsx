@@ -14,7 +14,6 @@ function LoginForm() {
   async function checkUser(data: any) {
 
     data.password = md5(data.password);
-    console.log(JSON.stringify({ userName: data.userName, password: data.password }));
     fetch(API_USER_URL + "validate", {
       method: "POST",
       body: JSON.stringify(data),
@@ -55,6 +54,7 @@ function LoginForm() {
           <input
             type="text"
             name="userName"
+            id="userName"
             className="input-text"
             placeholder="Elon"
             onChange={handleChange}
@@ -66,6 +66,7 @@ function LoginForm() {
           <input
             type="password"
             name="password"
+            id="password"
             className="input-text"
             placeholder="1234"
             onChange={handleChange}

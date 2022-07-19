@@ -1,4 +1,6 @@
 ﻿using API1.Models;
+using API1.Interfaces;
+using API1.Database;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 
@@ -9,88 +11,45 @@ namespace API1.Controllers
     public class UserController : ControllerBase
     {
 
-        private readonly IConfiguration _configuration;
+        public MongoRepository mongo;
+        private UserCollection collection;
         public UserController(IConfiguration configuration)
         {
-            _configuration = configuration;
+            // _configuration = configuration;
+            mongo = new MongoRepository(configuration.GetConnectionString("BlockChainAppCon"));
+            collection = new UserCollection(configuration);
         }
 
         [HttpGet]
         //Get all users from mongo DB
         public JsonResult Get()
         {
-            MongoClient dbClient = new MongoClient(_configuration.GetConnectionString("BlockChainAppCon"));
-
-            var dbList = dbClient.GetDatabase("BlockChainDocsDB").GetCollection<User>("User").AsQueryable();
-
-            return new JsonResult(dbList);
+            return new JsonResult(collection.getUsers());
         }
 
         [HttpPost("validate")]
-        public JsonResult ValidateUser(User user)
+        //Get single user from mongo DB
+        public JsonResult Get(User user)
         {
-            MongoClient dbClient = new MongoClient(_configuration.GetConnectionString("BlockChainAppCon"));
-            var dbList = dbClient.GetDatabase("BlockChainDocsDB").GetCollection<User>("User");
-            var filter = Builders<User>.Filter.Eq("userName", user.userName);
-            var singleUser = dbList.Find(filter).FirstOrDefault();
-            if (singleUser is null)
-            {
-                return new JsonResult(null);
-            }
-            else
-            {
-                if (singleUser.password == user.password)
-                {
-                    return new JsonResult(singleUser);
-                }
-                else
-                {
-                    return new JsonResult(null);
-                }
-            }
+            return new JsonResult(collection.validateUser(user));
         }
 
         [HttpPost]
         //Add user to mongo DB
         public JsonResult Post(User user)
         {
-            MongoClient dbClient = new MongoClient(_configuration.GetConnectionString("BlockChainAppCon"));
-
-            int LastUserId = dbClient.GetDatabase("BlockChainDocsDB").GetCollection<User>("User").AsQueryable().Count();
+            int LastUserId = mongo.database.GetCollection<User>("User").AsQueryable().Count();
             user.userId = LastUserId + 1;
 
-            dbClient.GetDatabase("BlockChainDocsDB").GetCollection<User>("User").InsertOne(user);
-
+            mongo.database.GetCollection<User>("User").InsertOne(user);
             return new JsonResult("Registrado Correctamente");
-        }
-
-
-        [HttpPut]
-        //Update/modify user from mongo DB
-        public JsonResult Put(User user)
-        {
-            MongoClient dbClient = new MongoClient(_configuration.GetConnectionString("BlockChainAppCon"));
-
-            var filter = Builders<User>.Filter.Eq("userId", user.userId);
-
-            var update = Builders<User>.Update.Set("userName", user.userName);
-
-            dbClient.GetDatabase("BlockChainDocsDB").GetCollection<User>("User").UpdateOne(filter, update);
-
-            return new JsonResult("Actualizado Correctamente");
         }
 
         [HttpDelete("{id}")]
         //Add user to mongo DB
-        public JsonResult Delete(int id)
+        public JsonResult Delete(string id)
         {
-            MongoClient dbClient = new MongoClient(_configuration.GetConnectionString("BlockChainAppCon"));
-
-            var filter = Builders<User>.Filter.Eq("userId", id);
-
-            dbClient.GetDatabase("BlockChainDocsDB").GetCollection<User>("User").DeleteOne(filter);
-
-            return new JsonResult("Eliminado Correctamente");
+            return new JsonResult(collection.deleteUser(id));
         }
     }
 }
